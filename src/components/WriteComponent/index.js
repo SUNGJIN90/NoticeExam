@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { WriteContainer, WriteTitle, WriteContent, CompletionBtn, CancelBtn } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 const WriteComponent = () => {
+  const navigate = useNavigate();
+
   const [titleValue, setTitleValue] = useState('');
   const [contentValue, setContentValue] = useState('');
 
@@ -27,10 +30,10 @@ const WriteComponent = () => {
         내용:
         <textarea name="content" value={contentValue} onChange={handleContent} />
       </WriteContent>
-      <CompletionBtn onClick={() => window.open('/', '_blank')}>
+      <CompletionBtn onClick={() => navigate('/')}>
         <p>완료</p>
       </CompletionBtn>
-      <CancelBtn onClick={() => window.open('/', '_blank')}>
+      <CancelBtn onClick={() => navigate('/')}>
         <p>취소</p>
       </CancelBtn>
     </WriteContainer>
